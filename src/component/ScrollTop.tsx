@@ -60,8 +60,8 @@ export default function ScrollTop() {
           style={{
             width: "50px",
             height: "50px",
-            border: "3px solid #f3f3f3",
-            borderTop: "3px solid #007bff",
+            border: "3px solid #ec5f0dee",
+            borderTop: "3px solid #ec5f0dee",
             borderRadius: "50%",
             animation: "spin 1s linear infinite",
           }}
