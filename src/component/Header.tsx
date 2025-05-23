@@ -36,8 +36,11 @@ export default function Header() {
           href="index.html"
           className="logo d-flex align-items-center me-auto me-xl-0"
         >
-          <img src="/assets/img/logo.png" alt="" />
-          <h1 className="sitename">KnightOne</h1>
+          <img
+            className="w-5"
+            src="/src/styles/assets/img/logoputih.png"
+            alt=""
+          />
         </a>
 
         <nav id="navmenu" className="navmenu">
@@ -67,9 +70,9 @@ export default function Header() {
           <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a className="cta-btn" href="#about">
+        {/* <a className="cta-btn" href="#about">
           Get Started
-        </a>
+        </a> */}
       </div>
     </header>
   );
