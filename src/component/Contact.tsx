@@ -25,7 +25,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact section light-background">
-      <div className="container section-title" data-aos="fade-up">
+      <div className="container section-title text-center" data-aos="fade-up">
         <h2>Contact</h2>
         <p>
           Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
@@ -44,7 +44,10 @@ const Contact = () => {
               <i className="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>
+                  Jl. Pembangunan VI, Tuk, Kec. Kedawung, Kabupaten Cirebon,
+                  Jawa Barat 45153
+                </p>
               </div>
             </div>
 
@@ -56,7 +59,7 @@ const Contact = () => {
               <i className="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <p>+62 821-1110-2272</p>
               </div>
             </div>
 
@@ -68,7 +71,7 @@ const Contact = () => {
               <i className="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>info@example.com</p>
+                <p>Info@bararec.co.id</p>
               </div>
             </div>
           </div>
@@ -139,6 +142,17 @@ const Contact = () => {
                 </div>
               </div>
             </form>
+          </div>
+          <div className="map mt-5 " data-aos="fade-left" data-aos-delay="300">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.3768290363487!2d108.54420837573714!3d-6.723790265742511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ee3f332fdb533%3A0xc2132a45dba95904!2sBara%20Reca%20Niroga!5e0!3m2!1sid!2sid!4v1748052871399!5m2!1sid!2sid"
+              width="600"
+              height="450"
+              style={{ border: 0, width: "100%", height: "270px" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </div>
