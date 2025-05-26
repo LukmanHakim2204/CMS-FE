@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-interface InstagramPost {
-  id: string;
-  caption?: string;
-  media_type: string;
-  media_url: string;
-  thumbnail_url?: string;
-  permalink: string;
-}
+import type { InstagramPost } from "../types/types";
 
 function InstagramFeed() {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
