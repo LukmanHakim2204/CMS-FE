@@ -76,16 +76,6 @@ const Milestone = () => {
     setCurrentIndex((prev) => (prev === milestones.length - 1 ? 0 : prev + 1));
   };
 
-  const scrollToMilestone = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 250;
-      scrollContainerRef.current.scrollBy({
-        left: direction === "right" ? scrollAmount : -scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
   // Auto scroll timeline when milestone changes
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -105,7 +95,7 @@ const Milestone = () => {
   const currentMilestone = milestones[currentIndex];
 
   return (
-    <section id="milestone" className="milestone section">
+    <section id="milestone" className="milestone-section">
       <div className="container section-title text-center" data-aos="fade-up">
         <h2>Our Journey</h2>
         <p className="subtitle">
@@ -114,12 +104,12 @@ const Milestone = () => {
       </div>
 
       <div className="container">
-        <div className="d-flex flex-column flex-lg-row align-items-center">
+        <div className="d-flex flex-column flex-lg-row align-items-center gap-5">
           {/* Image Section */}
           <div
             className="milestone-image col-lg-5 order-lg-2"
-            data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos="fade-left"
+            data-aos-delay="200"
           >
             <div className="milestone-image-container">
               <img
@@ -156,8 +146,12 @@ const Milestone = () => {
           </div>
 
           {/* Slider Section */}
-          <div className="col-lg-7 order-lg-1">
-            <div className="milestone-slider">
+          <div className="col-lg-7 ">
+            <div
+              className="milestone-slider"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
               {/* Current Single Milestone Display */}
               <div className="milestone-viewport">
                 <div className="milestone-single">
