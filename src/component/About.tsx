@@ -6,7 +6,7 @@ const About = () => {
       </div>
 
       <div className="container">
-        <div className="row gy-4">
+        <div className=" d-flex">
           <div
             className="col-lg-6 content"
             data-aos="fade-up"
