@@ -27,12 +27,6 @@ const Footer = () => {
                   <a href="https://www.instagram.com/barareca/">
                     <i className="bi bi-instagram"></i>
                   </a>
-                  <a href="#">
-                    <i className="bi bi-skype"></i>
-                  </a>
-                  <a href="#">
-                    <i className="bi bi-linkedin"></i>
-                  </a>
                 </div>
               </div>
             </div>

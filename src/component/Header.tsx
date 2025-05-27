@@ -52,14 +52,12 @@ export default function Header() {
               <a href="#about">About</a>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <a href="#visimisi">Visi Misi</a>
             </li>
             <li>
               <a href="#portfolio">Portfolio</a>
             </li>
-            <li>
-              <a href="#pricing">Pricing</a>
-            </li>
+
             <li>
               <a href="blog.html">Blog</a>
             </li>
