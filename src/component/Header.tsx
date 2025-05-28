@@ -1,4 +1,7 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
 export default function Header() {
   useEffect(() => {
     const toggleBtn = document.querySelector(".mobile-nav-toggle");
@@ -32,37 +35,43 @@ export default function Header() {
   return (
     <header id="header" className="header d-flex align-items-center fixed-top">
       <div className="container position-relative d-flex align-items-center justify-content-between">
-        <a
-          href="index.html"
-          className="logo d-flex align-items-center me-auto me-xl-0"
-        >
+        <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
           <img
             className="w-5"
             src="/src/styles/assets/img/logoputih.png"
             alt=""
           />
-        </a>
+        </Link>
 
         <nav id="navmenu" className="navmenu">
           <ul>
             <li>
-              <a href="#hero">Home</a>
+              <HashLink smooth to="/#hero">
+                Home
+              </HashLink>
             </li>
             <li>
-              <a href="#about">About</a>
+              <HashLink smooth to="/#about">
+                About
+              </HashLink>
             </li>
             <li>
-              <a href="#visimisi">Visi Misi</a>
+              <HashLink smooth to="/#visimisi">
+                Services
+              </HashLink>
             </li>
             <li>
-              <a href="#portfolio">Portfolio</a>
-            </li>
-
-            <li>
-              <a href="blog.html">Blog</a>
+              <HashLink smooth to="/#portfolio">
+                Portfolio
+              </HashLink>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <HashLink smooth to="/#contact">
+                Contact
+              </HashLink>
             </li>
           </ul>
           <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>

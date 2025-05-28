@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import featuresBg from "../styles/assets/img/features-bg.jpg";
+import featuresBg from "../../styles/assets/img/features-bg.jpg";
 
 const Milestone = () => {
   const milestones = [

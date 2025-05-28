@@ -1,23 +1,48 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function ScrollTop() {
+  const { pathname } = useLocation();
+  const [showButton, setShowButton] = useState(false);
+
+  // Scroll ke atas setiap kali route berubah
   useEffect(() => {
-    // Hapus preloader setelah component mount
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // Hapus preloader saat mount
+  useEffect(() => {
     const preloader = document.querySelector("#preloader");
     if (preloader) {
-      // Hapus preloader setelah delay singkat
       setTimeout(() => {
         preloader.remove();
       }, 500);
     }
   }, []);
 
+  // Tampilkan tombol scroll-top saat scroll ke bawah
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowButton(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScrollTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
-      {/* Scroll Top Button */}
+      {/* Tombol Scroll to Top */}
       <a
         href="#"
-        className="scroll-top d-flex align-items-center justify-content-center"
+        onClick={handleScrollTop}
+        className={`scroll-top d-flex align-items-center justify-content-center ${
+          showButton ? "active" : ""
+        }`}
         style={{
           position: "fixed",
           bottom: "20px",
@@ -28,19 +53,16 @@ export default function ScrollTop() {
           color: "white",
           borderRadius: "50%",
           textDecoration: "none",
-          opacity: 0,
-          visibility: "hidden",
           transition: "all 0.3s ease",
           zIndex: 9999,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          opacity: showButton ? 1 : 0,
+          visibility: showButton ? "visible" : "hidden",
         }}
       >
         <i className="bi bi-arrow-up-short" style={{ fontSize: "24px" }}></i>
       </a>
 
-      {/* Preloader - akan dihapus otomatis */}
+      {/* Preloader */}
       <div
         id="preloader"
         style={{
@@ -61,93 +83,25 @@ export default function ScrollTop() {
             width: "50px",
             height: "50px",
             border: "3px solid #ec5f0dee",
-            borderTop: "3px solid #ec5f0dee",
+            borderTop: "3px solid transparent",
             borderRadius: "50%",
             animation: "spin 1s linear infinite",
           }}
         ></div>
       </div>
 
-      {/* CSS Styles */}
+      {/* CSS Global Style */}
       <style>{`
-        /* Scroll Top Button Active State */
-        .scroll-top.active {
-          opacity: 1 !important;
-          visibility: visible !important;
-        }
-        
-        .scroll-top:hover {
-          background-color: #0056b3 !important;
-          transform: scale(1.1) !important;
-        }
-        
-        /* Preloader Animation */
         @keyframes spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
-        
-        /* Header Scroll Effects */
-        body.scrolled .header {
-          background-color: rgba(255, 255, 255, 0.95) !important;
-          box-shadow: 0 0 30px rgba(0, 0, 0, 0.1) !important;
-          backdrop-filter: blur(10px) !important;
-        }
-        
-        /* Mobile Navigation */
-        body.mobile-nav-active {
-          overflow: hidden !important;
-        }
-        
-        body.mobile-nav-active .mobile-nav-toggle {
-          color: #007bff !important;
-        }
-        
-        /* FAQ Styling */
-        .faq-item.faq-active .faq-content {
-          max-height: 300px !important;
-          opacity: 1 !important;
-          padding: 20px 0 !important;
-        }
-        
-        .faq-content {
-          max-height: 0 !important;
-          opacity: 0 !important;
-          overflow: hidden !important;
-          transition: all 0.3s ease !important;
-          padding: 0 !important;
-        }
-        
-        .faq-item.faq-active .faq-toggle {
-          transform: rotate(180deg) !important;
-        }
-        
-        .faq-toggle {
-          transition: transform 0.3s ease !important;
-        }
-        
-        /* Portfolio Filters */
-        .isotope-filters .filter-active {
-          background-color: #007bff !important;
-          color: white !important;
-        }
-        
-        /* Smooth Transitions */
-        .portfolio-item {
-          transition: all 0.3s ease !important;
-        }
-        
-        .header {
-          transition: all 0.3s ease !important;
-        }
-        
-        /* Fix untuk z-index issues */
-        .header.fixed-top {
-          z-index: 997 !important;
-        }
-        
-        .scroll-top {
-          z-index: 999 !important;
+          .scroll-top{
+          background-color:rgb(253, 51, 0) !important;
+          }
+        .scroll-top:hover {
+          background-color:rgb(245, 125, 55) !important;
+          transform: scale(1.1);
         }
       `}</style>
     </>

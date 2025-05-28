@@ -1,4 +1,4 @@
-import heroRightImg from "../styles/assets/img/Working-rafiki.png"; // Add your second image
+import heroRightImg from "../../styles/assets/img/Working-rafiki.png"; // Add your second image
 
 export default function Hero() {
   return (
