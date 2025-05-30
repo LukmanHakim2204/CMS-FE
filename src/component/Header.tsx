@@ -57,7 +57,7 @@ export default function Header() {
             </li>
             <li>
               <HashLink smooth to="/#visimisi">
-                Services
+                Visi & Misi
               </HashLink>
             </li>
             <li>
@@ -76,10 +76,6 @@ export default function Header() {
           </ul>
           <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
-        {/* <a className="cta-btn" href="#about">
-          Get Started
-        </a> */}
       </div>
     </header>
   );
