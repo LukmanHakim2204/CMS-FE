@@ -1,11 +1,11 @@
 // components/BlogHeader.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { BlogHeaderProps } from "../../types/types";
+import type { BlogHeaderProps } from "../../types/types";
 
 const BlogHeader: React.FC<BlogHeaderProps> = ({
   title = "Blog",
-  description = "Discover our latest articles, insights, and stories. Stay updated with fresh content and engaging discussions.",
+  description = "Temukan beragam wawasan, berita terkini, dan kisah menarik yang dikemas secara informatif dan inspiratif. Kami menghadirkan konten yang relevan untuk memperluas pengetahuan, memicu ide baru, dan memperkaya perspektif Anda.",
   backgroundImage, // Optional prop for custom background
   backgroundType = "gradient", // gradient, image, video
 }) => {
@@ -29,7 +29,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
 
   return (
     <div
-      className={`page-title ${backgroundType}`}
+      className={`blog-page-title ${backgroundType}`}
       data-aos="fade"
       style={getBackgroundStyle()}
     >
@@ -62,28 +62,28 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
         ))}
       </div>
 
-      <div className="container position-relative">
-        <div className="content-wrapper">
-          <h1 className="hero-title">
+      <div className="container position-relative mt-5">
+        <div className="content-wrapper ">
+          <h1 className="hero-title mt-4">
             <span className="title-line">{title}</span>
-            <div className="title-underline"></div>
           </h1>
+          <div className="title-underline"></div>
 
           <p className="hero-description">{description}</p>
 
           {/* Stats or Additional Info */}
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Articles</span>
+              <span className="stat-number-blog">500+</span>
+              <span className="stat-label-blog">Articles</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">50K+</span>
-              <span className="stat-label">Readers</span>
+              <span className="stat-number-blog">50K+</span>
+              <span className="stat-label-blog">Readers</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">25+</span>
-              <span className="stat-label">Categories</span>
+              <span className="stat-number-blog">25+</span>
+              <span className="stat-label-blog">Categories</span>
             </div>
           </div>
 
@@ -99,9 +99,6 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
               <li className="current">Blog</li>
             </ol>
           </nav>
-
-          {/* Scroll Down Indicator */}
-        
         </div>
       </div>
     </div>

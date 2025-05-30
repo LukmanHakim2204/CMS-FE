@@ -1,6 +1,6 @@
 // components/BlogPostsList.tsx
 import React from "react";
-import { BlogPostsListProps } from "../types/blog";
+import type { BlogPostsListProps } from "../../types/types";
 import BlogCard from "./BlogCard";
 import BlogSkeleton from "./BlogSkeleton";
 

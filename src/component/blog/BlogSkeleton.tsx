@@ -1,9 +1,6 @@
 // components/BlogSkeleton.tsx
 import React from "react";
-
-interface BlogSkeletonProps {
-  count?: number;
-}
+import type { BlogSkeletonProps } from "../../types/types";
 
 const BlogSkeleton: React.FC<BlogSkeletonProps> = ({ count = 6 }) => {
   return (

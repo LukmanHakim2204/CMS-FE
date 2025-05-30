@@ -1,6 +1,6 @@
 // components/BlogPagination.tsx
 import React from "react";
-import { BlogPaginationProps } from "../types/blog";
+import type { BlogPaginationProps } from "../../types/types";
 
 const BlogPagination: React.FC<BlogPaginationProps> = ({
   pagination,
@@ -58,13 +58,9 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
               <button
                 onClick={onPrevPage}
                 disabled={!pagination.hasPrev || loading}
-                style={{
-                  border: "none",
-                  background: "none",
-                  opacity: !pagination.hasPrev || loading ? 0.5 : 1,
-                  cursor:
-                    !pagination.hasPrev || loading ? "not-allowed" : "pointer",
-                }}
+                className={`pagination-btn ${
+                  !pagination.hasPrev || loading ? "disabled" : ""
+                }`}
                 aria-label="Previous page"
               >
                 <i className="bi bi-chevron-left" />
@@ -74,18 +70,14 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
             {generatePageNumbers().map((page, index) => (
               <li key={index}>
                 {page === "..." ? (
-                  <span>...</span>
+                  <span className="pagination-ellipsis">...</span>
                 ) : (
                   <button
                     onClick={() => onPageChange(page as number)}
-                    className={currentPage === page ? "active" : ""}
+                    className={`pagination-btn ${
+                      currentPage === page ? "active" : ""
+                    } ${loading ? "disabled" : ""}`}
                     disabled={loading}
-                    style={{
-                      border: "none",
-                      background: "none",
-                      cursor: loading ? "not-allowed" : "pointer",
-                      opacity: loading ? 0.7 : 1,
-                    }}
                     aria-label={`Go to page ${page}`}
                     aria-current={currentPage === page ? "page" : undefined}
                   >
@@ -99,13 +91,9 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
               <button
                 onClick={onNextPage}
                 disabled={!pagination.hasNext || loading}
-                style={{
-                  border: "none",
-                  background: "none",
-                  opacity: !pagination.hasNext || loading ? 0.5 : 1,
-                  cursor:
-                    !pagination.hasNext || loading ? "not-allowed" : "pointer",
-                }}
+                className={`pagination-btn ${
+                  !pagination.hasNext || loading ? "disabled" : ""
+                }`}
                 aria-label="Next page"
               >
                 <i className="bi bi-chevron-right" />
