@@ -8,6 +8,8 @@ export interface InstagramPost {
   permalink: string;
 }
 
+
+// types.ts
 export interface Author {
   id: number;
   name: string;
@@ -37,13 +39,17 @@ export interface Post {
   slug: string;
   author_id: Author;
   category_id: Category;
-  tags_id: Tag;
+  tags_id: Tag;  // Changed to single Tag object, not array
   thumbnail: string;
-  status: 'Draft' | 'Published';
+  status: 'Draft' | 'Published' | 'Archived';  // Added 'Archived'
   published_at: string;
-  content?: string;
+  created_at?: string;  // Made optional since it's not in API response
+  updated_at?: string;  // Made optional since it's not in API response
+  description?: string;
   excerpt?: string;
+  comments_count?: number;
 }
+
 
 export interface PaginationMeta {
   current_page: number;
@@ -94,7 +100,10 @@ export interface BlogState {
 export interface BlogHeaderProps {
   title?: string;
   description?: string;
+  backgroundImage?: string;
+  backgroundType?: "gradient" | "image" | "video";
 }
+
 
 export interface BlogPostsListProps {
   posts: Post[];
@@ -123,5 +132,12 @@ export interface ApiResponse<T> {
   data: T;
   meta?: PaginationMeta;
   links?: PaginationLinks;
+}
+
+export interface BlogSkeletonProps {
+  count?: number;
+}
+export interface BlogCardProps {
+  post: Post;
 }
 

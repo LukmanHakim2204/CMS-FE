@@ -1,7 +1,3 @@
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
@@ -16,7 +12,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #282828; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ec5f0dee; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #fa7122ee; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -294,11 +290,9 @@ h6 {
 
 /* Global Header on Scroll
 ------------------------------*/
-/* .scrolled .header {
-  --background-color: rgba(40, 40, 40, 0.9);
-} */
+
 .header.scrolled {
-  background-color: rgba(253, 94, 37, 0.9);
+  background-color: rgba(253, 120, 43, 0.918);
 }
 /*-------------------------------------------------------------- 
 # Hero Section with Orange Gradient
@@ -684,7 +678,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: rgba(253, 120, 43, 0.918);
   font-size: 14px;
   padding: 40px 0;
   position: relative;
@@ -1091,7 +1085,7 @@ section,
     #ff9a56 0%,
     #ff6b35 25%,
     #f15516 50%,
-    #ff472f 75%,
+    #ff712f 75%,
     #ff8a00 100%
   );
   background-size: 400% 400%;
@@ -1480,7 +1474,7 @@ section,
     #ff9a56 0%,
     #ff6b35 25%,
     #f15516 50%,
-    #ff472f 75%,
+    #ff712f 75%,
     #ff8a00 100%
   );
   background-size: 400% 400%;
@@ -3399,8 +3393,11 @@ section,
   flex: 1;
   overflow: hidden;
   display: -webkit-box;
+  display: box; /* Optional fallback */
   -webkit-line-clamp: 2;
+  line-clamp: 2; /* <- tambahkan ini */
   -webkit-box-orient: vertical;
+  box-orient: vertical; /* Optional fallback */
 }
 
 .view-post-btn {
@@ -3926,80 +3923,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .services-list {
-  background-color: var(--surface-color);
-  padding: 10px 30px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  margin-bottom: 20px;
-}
-
-.service-details .services-list a {
-  display: block;
-  line-height: 1;
-  padding: 8px 0 8px 15px;
-  border-left: 3px solid
-    color-mix(in srgb, var(--default-color), transparent 70%);
-  margin: 20px 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  transition: 0.3s;
-}
-
-.service-details .services-list a.active {
-  color: var(--heading-color);
-  font-weight: 700;
-  border-color: var(--accent-color);
-}
-
-.service-details .services-list a:hover {
-  border-color: var(--accent-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details h4 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-/* .starter-section { */
-/* Add your styles here */
-/* } */
-
-/*--------------------------------------------------------------
 # Blog Posts Section
 --------------------------------------------------------------*/
 .blog-posts article {
@@ -4024,7 +3947,7 @@ section,
 }
 
 .blog-posts .title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   padding: 0;
   margin: 0 0 20px 0;
@@ -4076,7 +3999,8 @@ section,
   transition: 0.3s;
 }
 
-.blog-pagination li a {
+/* Updated to target button elements instead of anchor tags */
+.blog-pagination li .pagination-btn {
   color: var(--accent-color);
   display: flex;
   align-items: center;
@@ -4085,19 +4009,30 @@ section,
   height: 36px;
   border-radius: 50%;
   border: 1px solid var(--accent-color);
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.blog-pagination li a.active,
-.blog-pagination li a:hover {
+.blog-pagination li .pagination-btn.active,
+.blog-pagination li .pagination-btn:hover:not(.disabled) {
   background: var(--accent-color);
   color: var(--contrast-color);
 }
 
-.blog-pagination li a.active a,
-.blog-pagination li a:hover a {
-  color: var(--contrast-color);
+.blog-pagination li .pagination-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
+.blog-pagination li .pagination-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--accent-color);
+}
 /*--------------------------------------------------------------
 # Blog Details Section
 --------------------------------------------------------------*/
@@ -4601,9 +4536,9 @@ section,
    =================================== */
 
 /* Base Styles */
-.page-title {
+.blog-page-title {
   position: relative;
-  min-height: 70vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4611,19 +4546,14 @@ section,
   color: white;
   text-align: center;
 }
-
 /* Background Types */
-.page-title.gradient {
+.blog-page-title.gradient {
   background: linear-gradient(135deg, #e99d5f 0%, #be644d 50%, #f37e30 100%);
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
 }
 
-.page-title.image {
-  /* Background image styles applied via inline styles */
-}
-
-.page-title.video {
+.blog-page-title.video {
   background: #000;
 }
 
@@ -4745,7 +4675,7 @@ section,
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -4779,7 +4709,7 @@ section,
   display: flex;
   justify-content: center;
   gap: 3rem;
-  margin: 3rem 0;
+  margin: 1rem 0;
   animation: fadeInUp 1s ease-out 0.6s both;
 }
 
@@ -4787,15 +4717,15 @@ section,
   text-align: center;
 }
 
-.stat-number {
+.stat-number-blog {
   display: block;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
-.stat-label {
+.stat-label-blog {
   font-size: 0.9rem;
   opacity: 0.8;
   text-transform: uppercase;

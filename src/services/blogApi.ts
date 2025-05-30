@@ -1,6 +1,7 @@
 // services/blogApi.ts
-import axios, { AxiosResponse } from 'axios';
-import { PaginatedResponse, FetchPostsParams, ApiResponse, Post } from '../types/blog';
+import axios from 'axios';
+import type { AxiosResponse } from 'axios';
+import type { PaginatedResponse, FetchPostsParams, ApiResponse, Post } from '../types/types';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 

@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
-import BlogHeader from "../component/blog/blogHeader";
+import BlogHeader from "../component/blog/BlogHeader";
 import BlogPostsList from "../component/blog/BlogPostsList";
 import BlogPagination from "../component/blog/BlogPagination";
 import { useBlog } from "../hooks/useBlog";

@@ -1,6 +1,6 @@
 // hooks/useBlog.ts
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { BlogState, FetchPostsParams, PaginationInfo } from '../types/blog';
+import type { BlogState, FetchPostsParams, PaginationInfo } from '../types/types';
 import { blogService } from '../services/blogApi';
 
 export const useBlog = (initialParams: FetchPostsParams = {}) => {
