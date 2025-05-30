@@ -71,22 +71,6 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
 
           <p className="hero-description">{description}</p>
 
-          {/* Stats or Additional Info */}
-          <div className="hero-stats">
-            <div className="stat-item">
-              <span className="stat-number-blog">500+</span>
-              <span className="stat-label-blog">Articles</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number-blog">50K+</span>
-              <span className="stat-label-blog">Readers</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number-blog">25+</span>
-              <span className="stat-label-blog">Categories</span>
-            </div>
-          </div>
-
           <nav className="breadcrumbs">
             <ol>
               <li>
