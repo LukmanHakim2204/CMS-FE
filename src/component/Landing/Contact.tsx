@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +19,35 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+
+    try {
+      await axios.post("http://localhost:8000/api/contact", formData);
+      Swal.fire({
+        title: "Success!",
+        text: "Message sent successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        Swal.fire({
+          title: "Error!",
+          text: err.response?.data?.message || "Something went wrong.",
+          icon: "error",
+          confirmButtonText: "Close",
+        });
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: "An unexpected error occurred.",
+          icon: "error",
+          confirmButtonText: "Close",
+        });
+      }
+    }
   };
 
   return (
