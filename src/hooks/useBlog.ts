@@ -81,12 +81,11 @@ export const useBlog = (initialParams: FetchPostsParams = {}) => {
   useEffect(() => {
     mountedRef.current = true;
     fetchPosts(initialParamsRef.current);
-
+  
     return () => {
       mountedRef.current = false;
     };
-  }, []); // Empty dependency array - only run once
-
+  }, [fetchPosts]);
   return {
     ...state,
     fetchPosts,

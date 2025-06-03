@@ -43,13 +43,20 @@ export interface Post {
   thumbnail: string;
   status: 'Draft' | 'Published' | 'Archived';  // Added 'Archived'
   published_at: string;
-  created_at?: string;  // Made optional since it's not in API response
-  updated_at?: string;  // Made optional since it's not in API response
+  created_at?: string; 
+  updated_at?: string; 
   description?: string;
   excerpt?: string;
   comments_count?: number;
 }
 
+export interface RecentPost  {
+  id: number;
+  title: string;
+  slug: string;
+  thumbnail: string;
+  published_at: string;
+}
 
 export interface PaginationMeta {
   current_page: number;
@@ -141,3 +148,14 @@ export interface BlogCardProps {
   post: Post;
 }
 
+export interface PortfolioItem {
+  image: string;
+  category: string;
+  title: string;
+  description: string;
+  gallery: string;
+  details: string;
+  technologies: string[];
+  client: string;
+  duration: string;
+}

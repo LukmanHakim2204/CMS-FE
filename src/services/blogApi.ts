@@ -55,7 +55,7 @@ export const blogService = {
     const { page = 1, limit = 9 } = params;
     
     try {
-      const response: AxiosResponse<PaginatedResponse> = await blogApi.get('/posts', {
+      const response: AxiosResponse<PaginatedResponse> = await blogApi.get('/posts/pagination', {
         params: { page, limit }
       });
       
